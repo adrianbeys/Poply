@@ -1,13 +1,13 @@
 <template>
   <v-sheet rounded width="400" min-height="600" class="pa-6 mx-auto">
- <div class="d-flex justify-center ma-2">
+ <div class="d-flex justify-center">
   <RouterLink to="/">
-    <v-img width="100" height="100" src="../assets/logo-poply.svg">
+    <v-img width="80" height="80" src="../assets/logo-poply.svg">
   </v-img>
 </RouterLink>
  
 </div>
-<h1 class="d-flex justify-center ma-2"> Create Account</h1>
+<h2 class="d-flex justify-center pa-2"> Create Account</h2>
     <v-form ref="form">
       <v-text-field
         v-model="nickname"
@@ -16,6 +16,16 @@
         :rules="nicknameRules"
         label="Nickname"
         required
+        :clearable="true"
+      ></v-text-field>
+
+      <v-text-field
+        v-model="email"
+        id="emailfield"
+        :rules="emailRules"
+        label="E-mail address"
+        required
+        :clearable="true"
       ></v-text-field>
 
       <v-text-field
@@ -26,6 +36,7 @@
         :rules="passwordRules"
         label="Password (8-25 characters)"
         required
+        :clearable="true"
       ></v-text-field>
 
       <v-text-field
@@ -36,12 +47,13 @@
         :rules="confirmpasswordRules" 
         label="Confirm Password"
         required
+        :clearable="true"
       ></v-text-field>
 
       <v-select
         v-model="select"
         id="avatarslist"
-        :avatars="avatars"
+        :items="avatars"
         :rules="[v => !!v || 'Choose your avatar!']"
         label="Avatar"
         required
@@ -88,6 +100,11 @@
         v => !!v || 'Nickname is required',
         v => (v && v.length <= 18 && v.length>=4) || 'Nickname must be less between 3-18 characters',
       ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail address is required',
+        v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+      ],
       password: '',
       passwordRules: [
         v => !!v || 'Password is required',
@@ -101,7 +118,7 @@
       v => !!v || 'Confirm your password',
       v => v === passwordfield.value || 'Password must match',
       ],
-      select: null,
+      select: '',
       avatars: [
         'Item 1',
         'Item 2',
@@ -123,3 +140,22 @@
     },
   }
 </script>
+
+<style lang="scss" scoped>
+
+.v-text-field ::v-deep input {
+    font-size: 0.9em;
+}
+
+.v-text-field ::v-deep label {
+    font-size: 0.9em;
+}
+
+.v-text-field ::v-deep button {
+    font-size: 0.9em;
+}
+
+.v-select ::v-deep button {
+    font-size: 0.9em;
+}
+</style>
