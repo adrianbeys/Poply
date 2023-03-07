@@ -11,8 +11,8 @@
         <v-list>
           <v-list-item
             prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-            title="Sandra Adams"
-            subtitle="sandra_a88@gmailcom"
+            title="usertest"
+            subtitle="example@email.com"
           ></v-list-item>
         </v-list>
 

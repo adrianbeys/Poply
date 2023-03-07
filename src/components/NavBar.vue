@@ -5,10 +5,10 @@
       <v-toolbar-title class="nav-title">Poply</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tabs v-model="tab" bg-color="#FFFFFF0" color="white">
-      <v-tab value="one"><v-icon>mdi-home</v-icon>&nbsp;Home</v-tab>
-      <v-tab value="two"><v-icon>mdi-book</v-icon>&nbsp;About</v-tab>
-      <v-tab value="three"><v-icon>mdi-account-circle</v-icon>&nbsp;Create Account</v-tab>
-    </v-tabs>
+        <v-tab value="one" to="/"><v-icon>mdi-home</v-icon>&nbsp;Home</v-tab>
+        <v-tab value="two"><Router-link to="/about"><v-icon>mdi-book</v-icon>&nbsp;About</Router-link></v-tab>
+        <v-tab value="three"><v-icon>mdi-account-circle</v-icon>&nbsp;Create Account</v-tab>
+      </v-tabs>
     </v-app-bar>
     
     <!-- <v-content>
@@ -26,11 +26,6 @@ export default {
     return {
       logonav: require("../assets/logo-poply.svg"),
       sidebar: false,
-      menuItems: [
-          { title: 'Home', path: '/home', icon: 'home' },
-          { title: 'Sign Up', path: '/signup', icon: 'face' },
-          { title: 'Sign In', path: '/signin', icon: 'lock_open' }
-     ]
     }
   },
 };
