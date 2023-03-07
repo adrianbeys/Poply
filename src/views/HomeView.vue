@@ -1,14 +1,14 @@
 <template>
   <NavBar />
-  <Homepage />
+  <!-- <Homepage /> -->
+  <div class="chatting-img"><img :src="chatilu"></div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 
-// Components
 import NavBar from '../components/NavBar.vue';
-import Homepage from '../components/Homepage.vue';
+// import Homepage from '../components/Homepage.vue';
 
 export default defineComponent({
 
@@ -17,10 +17,15 @@ export default defineComponent({
   },
 
   name: 'HomeView',
+  data(){
+    return {
+      chatilu: require("../assets/chatting-image.svg"),
+    }
+  },
 
   components: {
     NavBar,
-    Homepage,
+    // Homepage,
   },
 });
 </script>
@@ -29,5 +34,8 @@ export default defineComponent({
  .v-main {
   background-color: #2F2D2E;
   color: white;
+ }
+ .chatting-img img {
+    height: 19rem;
  }
 </style>
