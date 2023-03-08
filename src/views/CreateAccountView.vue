@@ -49,21 +49,24 @@
         required
         :clearable="true"
       ></v-text-field>
-
-      <v-select
-        v-model="select"
-        id="avatarslist"
-        :items="avatars"
-        :rules="[v => !!v || 'Choose your avatar!']"
-        label="Avatar"
-        required
+      
+  <div class="text-center">
+    <v-btn
+      
+    >Avatar Selection
+      <v-dialog
+        v-model="dialog"
+        activator="parent"
+        width="auto"
       >
-      <v-item-group mandatory>
+        <v-card>
+          <v-card-text>
+<v-item-group mandatory>
     <v-container>
       <v-row>
         <v-col
-          v-for="n in 3"
-          :key="n"
+        v-for="(avatarurl, i) in avatarsurl"
+        :key="i"
           cols="12"
           md="4"
         >
@@ -72,27 +75,37 @@
               :color="isSelected ? 'primary' : ''"
               class="d-flex align-center"
               dark
-              height="15"
+              height="100"
               @click="toggle"
             >
+            <v-img :src="require(`../assets/${avatarurl.src}`)" max-width="100"></v-img>
               <v-scroll-y-transition>
                 <div
-                  class="text-h3 flex-grow-1 text-center"
+                  class="text-h6 flex-grow-1 text-center"
                 >
-                  {{ isSelected ? 'Selected' : 'Click Me!' }}
+                  {{ isSelected ? 'Selected' : 'Click the avatar'}}
                 </div>
               </v-scroll-y-transition>
             </v-card>
           </v-item>
         </v-col>
       </v-row>
-      </v-container>
-      </v-item-group>
-      </v-select>
+    </v-container>
+  </v-item-group>
+    </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" block @click="dialog = false">Close Dialog</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-btn>
+  </div>
+    
 
       <v-checkbox
         v-model="checkbox"
         id="rulescheckbox"
+        color="success"
         :rules="[v => !!v || 'You must agree to continue!']"
         label="I agree to the rules of Poply service"
         required
@@ -125,6 +138,8 @@
 <script>
   export default {
     data: () => ({
+      text: 'Choose your avatar',
+      dialog: false,
       valid: true,
       nickname: '',
       nicknameRules: [
@@ -150,11 +165,26 @@
       v => v === passwordfield.value || 'Password must match',
       ],
       select: '',
-      avatars: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
+      avatarsurl: [
+       {
+        src:   'avatar_01.svg'
+       },
+
+       {
+        src:   'avatar_02.svg'
+       },
+
+       {
+        src:   'avatar_03.svg'
+       },
+
+       {
+        src:    'avatar_04.svg'
+       },
+
+       {
+        src:    'avatar_05.svg'
+       }
       ],
       checkbox: false,
     }),
@@ -174,19 +204,19 @@
 
 <style lang="scss" scoped>
 
-.v-text-field ::v-deep input {
+.v-text-field :deep(.input) {
     font-size: 0.9em;
 }
 
-.v-text-field ::v-deep label {
+.v-text-field :deep(.label) {
     font-size: 0.9em;
 }
 
-.v-text-field ::v-deep button {
+.v-text-field :deep(.button) {
     font-size: 0.9em;
 }
 
-.v-select ::v-deep button {
+.v-select :deep(.button) {
     font-size: 0.9em;
 }
 </style>
