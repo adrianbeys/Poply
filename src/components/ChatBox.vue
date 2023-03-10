@@ -5,21 +5,18 @@
                 <v-col cols="12" sm="3">
                     <h2 style="margin-bottom:10px;">Chat</h2>
                     <div style="background-color:#1a1a1a; border-radius: 10px;">
-                    <v-list class="overflow-y-auto" style="background-color: transparent; " v-model="activeChat"
-                        v-for="(item, index) in parents">
-
-                        <v-virtual-scroll :items="items" :item-height="50" height="300">
-                            <v-list-item style="background-color: transparent; color: white; border-radius: 20px;" :key="`parent${index}`"
-                                :value="item.id">
-                              
-
-                                <v-list-item-title v-text="item.title" />
-                                <v-list-item-subtitle v-text="'Test message'" />
-                            </v-list-item>
-                        </v-virtual-scroll>
-                        <v-divider :key="`chatDivider${index}`" class="my-0" color="transparent" />
-                    </v-list>
-                </div>
+                        <v-list class="overflow-y-auto pa-2" style="background-color: transparent; " v-model="activeChat"
+                            v-for="(item, index) in parents">
+                            <v-virtual-scroll :items="items" :item-height="50" height="300">
+                                <v-list-item style="background-color: transparent; color: white; border-radius: 20px;"
+                                    :key="`parent${index}`" :value="item.id">
+                                    <v-list-item-title v-text="item.title" />
+                                    <v-list-item-subtitle v-text="'Test message'" />
+                                </v-list-item>
+                            </v-virtual-scroll>
+                            <v-divider :key="`chatDivider${index}`" class="my-0" color="transparent" />
+                        </v-list>
+                    </div>
                 </v-col>
                 <v-col cols="auto" class="flex-grow-1">
                     <v-card flat class="d-flex flex-column fill-height" style="background-color: grey;">
@@ -47,13 +44,10 @@
                         </v-card-text>
                         <div class="d-flex pa-6">
                             <v-textarea density="comfortable" placeholder="Write a message" type="text" rows="3"
-                            style="margin-right: 20px"
-                               variant="solo" />
-                               <v-btn style="margin-top: 15px; background-color: green; color: white;" icon="mdi-send"></v-btn>
-                      </div>
-                        
+                                style="margin-right: 20px" variant="solo" />
+                            <v-btn style="margin-top: 15px; background-color: green; color: white;" icon="mdi-send"></v-btn>
+                        </div>
                     </v-card>
-
                 </v-col>
             </v-row>
         </v-container>
@@ -155,8 +149,6 @@ export default {
 
 
 <style>
-
-
 #content {
     color: white;
 }
