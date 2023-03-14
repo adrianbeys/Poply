@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CreateAccountView from '../views/CreateAccountView.vue'
 import ChatView from '../views/ChatView.vue'
+import PostRegisterRedirect from '../views/PostRegisterRedirect.vue'
 
 const routes = [
   {
@@ -25,6 +26,12 @@ const routes = [
     name: 'chat',
     component: ChatView
   },
+  {
+    path: '/post-register',
+    name: 'post-register',
+    component: PostRegisterRedirect,
+  },
+ 
 ]
 
 const router = createRouter({

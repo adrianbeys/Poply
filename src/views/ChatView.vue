@@ -10,6 +10,7 @@
       <v-list density="compact" nav>
         <v-list-item prepend-icon="mdi-message-text" title="Chat" value="chat"></v-list-item>
         <v-list-item prepend-icon="mdi-cog" title="Settings" value="settings"></v-list-item>
+        <v-list-item prepend-icon="mdi-account-multiple-plus" title="Add Member" value="add-member"></v-list-item>
         <v-divider></v-divider>
         <v-list-item prepend-icon="mdi-logout" class="posbottom text-red" title="Log out" value="logout"></v-list-item>
       </v-list>

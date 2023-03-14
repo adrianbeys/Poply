@@ -44,7 +44,7 @@
                         </v-card-text>
                         <div class="d-flex pa-6">
                             <v-textarea density="comfortable" placeholder="Write a message" type="text" rows="3"
-                                style="margin-right: 20px" variant="solo" />
+                                style="margin-right: 20px" variant="solo"  no-resize/>
                             <v-btn style="margin-top: 15px; background-color: green; color: white;" icon="mdi-send"></v-btn>
                         </div>
                     </v-card>
@@ -151,5 +151,9 @@ export default {
 <style>
 #content {
     color: white;
+}
+
+#chatbox {
+align-items: center;
 }
 </style>
